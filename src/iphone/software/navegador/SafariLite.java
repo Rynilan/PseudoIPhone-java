@@ -68,8 +68,11 @@ public class SafariLite implements Navegador {
 
 	/** This method acts like the IU of Safari (generally). */
 	public void iniciar(Scanner stdin, PrintStream stdout) {
+		String procede;
 		do  {
-			stdout.println("\033[H\033[2 - Safari, pesquise e conheça -");
+			stdout.print("\033[H\033[2");
+			stdout.flush();
+			stdout.println("- Safari, pesquise e conheça -");
 			this.internete.conectar();
 			stdout.print("\n ?>");
 			String pesquisa = stdin.nextLine();
@@ -88,8 +91,9 @@ public class SafariLite implements Navegador {
 			} else {
 				stdout.printf("%d fora do escopo.", indice);
 			}
-			stdout.print("sair, 's' sai, qualquer outro valor continua?\n ?>");
-		} while (stdin.nextLine() != "s");
+			stdout.print("Sair?\ns para sim, qualquer outro valor, não.\n ?>");
+			procede = stdin.nextLine();
+		} while (procede != "s");
 		this.internete.desconectar();
 	}
 }

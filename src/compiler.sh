@@ -1,8 +1,13 @@
-cd ~/Documents/Programas/java/IPhone/;
-javac -d bin/ src/iphone/dados/musica/*.java;
-javac -d bin/ src/iphone/dados/numero_telefonico/*.java;
-javac -d bin/ src/iphone/dados/rede/conexao/*.java;
-javac -d bin/ src/iphone/dados/rede/destinos/*.java;
-javac -d bin/ src/iphone/software/navegador/*.java;
-javac -d bin/ src/iphone/software/reprodutor_musical/*.java;
-javac -d bin/ src/iphone/software/sistema_telefonico/*.java;
+cd ~/Documents/Programas/java/IPhone/src/iphone/;
+javac -d ../../bin/ \
+    dados/rede/conexao/Rede.java \
+    dados/rede/destinos/Sites.java \
+    dados/musica/Musica.java \
+    dados/numero_telefonico/NumeroTelefonico.java \
+    software/navegador/Navegador.java \
+    software/navegador/SafariLite.java \
+    software/reprodutor_musical/ReprodutorMusical.java \
+    software/reprodutor_musical/ITunesLite.java \
+    software/sistema_telefonico/SistemaTelefonico.java \
+    software/sistema_telefonico/TelefoneLite.java \
+    IPhone.java

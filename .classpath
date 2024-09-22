@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path="lib"/>
-	<classpathentry excluding="iphone/software/sistema_telefonico/|iphone/software/reprodutor_musical/" kind="src" path="src"/>
-	<classpathentry kind="src" path="src/iphone/software/reprodutor_musical"/>
-	<classpathentry kind="src" path="src/iphone/software/sistema_telefonico"/>
-	<classpathentry kind="output" path="bin"/>
-</classpath>
