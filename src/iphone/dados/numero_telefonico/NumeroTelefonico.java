@@ -1,7 +1,7 @@
 package iphone.dados.numero_telefonico;
 
+/** Class to hold the info about pseudo phone numbers. */
 public class NumeroTelefonico {
-	/** Class to hold the info about pseudo phone numbers. */
 	private int numero;
 	private String operadora;
 	private double sinal = 0;

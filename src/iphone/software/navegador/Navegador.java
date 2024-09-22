@@ -1,11 +1,14 @@
 package iphone.software.navegador;
+import java.util.Scanner;
+import java.io.PrintStream;
 
+/**
+ * A mold to a internet browser.
+ */
 public interface Navegador {
-	public void iniciar();
+	public void iniciar(Scanner stdin, PrintStream stdout);
 
 	public void pesquisar(String prompt);
 
-	default void entrarNoSite() {
-		System.out.print("          \n   404 - NOT FOUND   \n          ");
-	}
+	public void entrarNoSite(String pesquisa, int site);
 }

@@ -1,4 +1,4 @@
-package iphone.dados.rede;
+package iphone.dados.rede.conexao;
 
 public class Rede {
 	/** Class to hold info of a pseudo connection with the internet. */
