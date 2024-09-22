@@ -10,16 +10,18 @@ public enum Sites {
 	CIENCIA1("Profº Zé Chaves", "O estudo recente sobre %s revela insights importantes sobre seu impacto na sociedade. A pesquisa utilizou métodos rigorosos para analisar dados e chegou a conclusões que podem transformar nossa compreensão de %s. Os resultados sugerem novas direções para investigações futuras e podem influenciar políticas públicas."),
 	CIENCIA2("Especialista Maria Ofélia", "A pesquisa em torno de %s tem avançado significativamente nos últimos anos. Utilizando métodos científicos, os pesquisadores examinaram diversos fatores que influenciam %s. Esses estudos ajudam a esclarecer questões complexas e podem oferecer soluções inovadoras para os desafios associados a %s."),
 	FAMOSOS("Opinião de Famosos", "Recentemente, %s se envolveu em uma polêmica que deixou muitos fãs divididos. Enquanto alguns apoiam suas decisões, outros questionam as verdadeiras intenções por trás de %s. Essa discussão acirrada só demonstra o poder que a figura de %s exerce na cultura contemporânea e a atenção que atrai em cada movimento."),
-	WIKIPEDIA("WikiPedia", "%s é um conceito que abrange diversas áreas de estudo e prática. Frequentemente, é discutido em contextos sociais, culturais e científicos. A importância de %s é evidente na forma como impacta a vida das pessoas e suas interações. Este tópico continua a ser explorado em pesquisas e debates acadêmicos, gerando novas perspectivas."),
-	CHATGPT("Chat GPT lite minimum", "Em um mundo onde %s dança com o vento, as nuvens cantam canções de primavera. Enquanto isso, o sol joga xadrez com as estrelas e a lua se pergunta sobre a cor do silêncio. No fundo, %s flutua como um sonho, esperando que os peixes aprendam a tocar violão e as árvores revelem seus segredos mais profundos."),
+	WIKIPEDIA("WikiPedia", "%s é um termo que abrange diversas áreas de estudo e interesse. A importância de %s se reflete em sua presença na vida cotidiana e em várias disciplinas. Pesquisas sobre %s ajudam a compreender suas implicações e impacto na sociedade, além de contribuir para o avanço do conhecimento sobre o tema."),
+	CHATGPT("Chat GPT lite minimum", "A partir do momento em que %s dança com as nuvens, podemos observar como %s se entrelaça nas conversas das estrelas. Quando %s sorri para a montanha, as flores cantam em harmonia, revelando segredos do universo. Assim, o ciclo continua, iluminando os caminhos de quem busca entender o mistério da vida."),
 	YOUTUBE("YouTube", "");
 
 	private final String titulo;
 	private final String leroLeroPadrao = String.format(" - - - - - - - - - - -\n%12s\n - - - - - - - - - - -\n", " = 404 Not found :( = ");
 	private final String leroLeroLegal;
+	private final String endereco;
 
 	private Sites(String titulo, String leroLero) {
 		this.titulo = titulo;
+		this.endereco = String.format("https://www.%s.com.br/", titulo.toLowerCase().replaceAll(" ", "_"));
 		this.leroLeroLegal = String.format(" - %29s - \n\n%s", this.titulo, this.formatador(leroLero, 35));
 	}
 	
@@ -38,9 +40,9 @@ public enum Sites {
 		return formatado;
 	}
 
-	public void abrirSite(String prompt) {
+	public void abrirSite(String pesquisa) {
 		if (this.titulo != "" && !(this.titulo == "YouTube")) {
-			System.out.printf(this.leroLeroLegal, prompt, prompt);
+			System.out.printf(this.leroLeroLegal, pesquisa, pesquisa, pesquisa);
 		} else {
 			System.out.printf(this.leroLeroPadrao);
 		}
@@ -48,5 +50,9 @@ public enum Sites {
 
 	public String getTitulo() {
 		return this.titulo;
+	}
+
+	public String getEndereco() {
+		return this.endereco;
 	}
 }

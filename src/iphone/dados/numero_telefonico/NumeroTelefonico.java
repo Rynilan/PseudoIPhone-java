@@ -2,17 +2,17 @@ package iphone.dados.numero_telefonico;
 
 /** Class to hold the info about pseudo phone numbers. */
 public class NumeroTelefonico {
-	private int numero;
+	private String numero;
 	private String operadora;
 	private double sinal = 0;
 
-	public NumeroTelefonico(int numero, String operadora) {
+	public NumeroTelefonico(String numero, String operadora) {
 		this.numero = numero;
 		this.operadora = operadora;
 		this.sinal = Math.random() * 100;
 	}
 
-	public int getNumero() {
+	public String getNumero() {
 		return this.numero;
 	}
 	

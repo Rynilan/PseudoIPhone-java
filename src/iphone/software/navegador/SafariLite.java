@@ -2,7 +2,6 @@ package iphone.software.navegador;
 import iphone.dados.rede.destinos.Sites;
 import iphone.dados.rede.conexao.Rede;
 import java.io.PrintStream;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class SafariLite implements Navegador {
@@ -53,9 +52,9 @@ public class SafariLite implements Navegador {
 		String endereco = "";
 		for (int indice = 0; indice < RESULTADOS.length; indice++) {
 			endereco += String.format(
-				"%d - https://www.%s.com.br/%s/\n",
+				"%d - %s%s/\n",
 				indice + 1,
-				RESULTADOS[indice].getTitulo().toLowerCase(),
+				RESULTADOS[indice].getEndereco(),
 				pesquisa.replaceAll(" ", "-").toLowerCase()
 			);
 		}
@@ -68,20 +67,18 @@ public class SafariLite implements Navegador {
 
 	/** This method acts like the IU of Safari (generally). */
 	public void iniciar(Scanner stdin, PrintStream stdout) {
-		String procede;
+		String procede = "s";
+		this.internete.conectar();
 		do  {
-			stdout.print("\033[H\033[2");
-			stdout.flush();
-			stdout.println("- Safari, pesquise e conheça -");
-			this.internete.conectar();
+			stdout.println("\n- Safari, pesquise e conheça -");
 			stdout.print("\n ?>");
 			String pesquisa = stdin.nextLine();
 			pesquisar(pesquisa);
 			stdout.print("Entrar em que site\n ?> ");
 			int indice = -1;
 			try {
-				indice = stdin.nextInt() - 1;
-			} catch (InputMismatchException exception) {
+				indice = Integer.parseInt(stdin.nextLine()) - 1;
+			} catch (NumberFormatException exception) {
 				stdout.print("Valor inválido.");
 			}
 			if (indice >= 0 && indice < RESULTADOS.length) {
@@ -91,9 +88,9 @@ public class SafariLite implements Navegador {
 			} else {
 				stdout.printf("%d fora do escopo.", indice);
 			}
-			stdout.print("Sair?\ns para sim, qualquer outro valor, não.\n ?>");
+			stdout.print("\nFazer outra pesquisa? 's' para sim, qualquer outro valor, não.\n ?>");
 			procede = stdin.nextLine();
-		} while (procede != "s");
+		} while (procede.equals("s"));
 		this.internete.desconectar();
 	}
 }
