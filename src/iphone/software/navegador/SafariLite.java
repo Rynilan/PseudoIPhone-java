@@ -45,8 +45,8 @@ public class SafariLite implements Navegador {
 
 	/** 
 	 * Return the result of the search using the prompt.
-	 * @param prompt represent the user search.
-	 * @return A string with a title of evry site.
+	 * @param pesquisa represent the user search.
+	 * @return a string with a title of evry site.
 	 */
 	private String retornarResultados(String pesquisa) {
 		String endereco = "";

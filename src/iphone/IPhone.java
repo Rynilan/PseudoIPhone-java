@@ -5,13 +5,14 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 import iphone.software.navegador.SafariLite;
+import iphone.software.reprodutor_musical.ITunesLite;
 import iphone.software.sistema_telefonico.TelefoneLite;
 
 
 public class IPhone {
 	public static void main(String[] parametros) {
 		SafariLite safariLite = new SafariLite(null, null, "Google");
-		// Declaration of iTunesLite;
+		ITunesLite iTunesLite = new ITunesLite();
 		TelefoneLite telefoneLite = new TelefoneLite("+55 (081) 9 1234-5678", "CLARO");
 		Scanner stdin = new Scanner(System.in);
 		PrintStream stdout = System.out;
@@ -28,7 +29,7 @@ public class IPhone {
 						TimeUnit.SECONDS.sleep(3);
 						break;
 					case "2":
-						// iTunesLite.iniciar(stdin, stdout);
+						iTunesLite.iniciar(stdin, stdout);
 						stdout.print("Saindo...\n\n");
 						TimeUnit.SECONDS.sleep(3);				break;
 					case "3":
