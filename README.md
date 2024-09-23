@@ -12,7 +12,7 @@ lib/ : nothing really important, but it's fancy to have all the three folders.
 
 # How To Run
 
-just clone the repository, enter on the folder and run the run.sh file.
+just clone the repository, enter on the folder and run the run.sh file.  
 <code>cd path/to/the/cloned/repository; sh run.sh;</code>  
-another option is just go to the bin/ folder and run this code on the console (terminal).
+another option is just go to the bin/ folder and run this code on the console (terminal).  
 <code>java iphone.IPhone;</code>
